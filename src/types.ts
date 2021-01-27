@@ -1,4 +1,5 @@
 import { Client, Message } from 'discord.js'
+import Bot from './class/Bot'
 
 type ObjectValue<T> = {
 	[x: string]: T
@@ -7,7 +8,7 @@ type ObjectValue<T> = {
 interface Command {
 	readonly type: 'equals' | 'starts'
 	readonly content: string
-	run(client: Client, msg: Message): void
+	run(bot: Bot, msg: Message): void
 }
 
 export {
