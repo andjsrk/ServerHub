@@ -18,6 +18,10 @@ export default class Bot {
 		if (!this.readied) throw new Error('bot wasn\'t ready.')
 		return this.client.user!.id
 	}
+	get user() {
+		if (!this.readied) throw new Error('bot wasn\'t ready.')
+		return this.client.user!
+	}
 	bindPrefix(prefix: string) {
 		CommandExecuter.bindPrefix(prefix)
 	}
