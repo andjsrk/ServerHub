@@ -1,5 +1,5 @@
 import * as fs from 'fs'
-import { Client, ClientEvents, Message } from 'discord.js'
+import { Client, ClientEvents, Message, User, Guild, Channel, GuildEmoji } from 'discord.js'
 import CommandExecuter from './CommandExecuter'
 import { CommandInterface } from '../types'
 
@@ -40,6 +40,10 @@ export default class Bot {
 		this.client.once(eventName, listener)
 		return this
 	}
+	get(type: 'user', id: string): User
+	get(type: 'guild', id: string): Guild
+	get(type: 'channel', id: string): Channel
+	get(type: 'emoji', id: string): GuildEmoji
 	get(type: 'user' | 'guild' | 'channel' | 'emoji', id: string) {
 		switch (type) {
 			case 'user':

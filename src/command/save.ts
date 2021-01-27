@@ -1,4 +1,4 @@
-import { Client, Message } from 'discord.js'
+import { Message } from 'discord.js'
 import * as DB from 'quick.db'
 import Bot from '../class/Bot'
 import Embed from '../class/Embed'
