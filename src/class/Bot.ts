@@ -66,4 +66,3 @@ export default class Bot {
 		return this.client.login(this.token)
 	}
 }
-new Client().guilds
