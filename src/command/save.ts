@@ -1,5 +1,6 @@
 import { Client, Message } from 'discord.js'
 import * as DB from 'quick.db'
+import Bot from '../class/Bot'
 import Embed from '../class/Embed'
 import Data from '../class/Data'
 import Util from '../util'
@@ -9,7 +10,7 @@ import { CommandInterface, ObjectValue } from '../types'
 module.exports = {
 	type: 'equals',
 	content: '저장',
-	run(client: Client, msg: Message) {
+	run(bot: Bot, msg: Message) {
 		if (msg.guild === null) return
 		if (msg.member!.id !== msg.guild.owner!.id) {
 			msg.channel.send(

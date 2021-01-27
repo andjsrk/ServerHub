@@ -1,4 +1,5 @@
-import { Client, Message } from 'discord.js'
+import { Message } from 'discord.js'
+import Bot from './Bot'
 import { CommandInterface } from '../types'
 
 export default class CommandExecuter {
@@ -6,16 +7,16 @@ export default class CommandExecuter {
 	static bindPrefix(prefix: string) {
 		CommandExecuter.prefix = prefix
 	}
-	static execute(command: CommandInterface, client: Client, msg: Message) {
+	static execute(command: CommandInterface, bot: Bot, msg: Message) {
 		switch (command.type) {
 			case 'equals':
 				if (msg.content === `${CommandExecuter.prefix}${command.content}`) {
-					command.run(client, msg)
+					command.run(bot, msg)
 				}
 				break
 			case 'starts':
 				if (msg.content.startsWith(`${CommandExecuter.prefix}${command.content}`)) {
-					command.run(client, msg)
+					command.run(bot, msg)
 				}
 				break
 		}

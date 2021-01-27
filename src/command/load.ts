@@ -1,5 +1,6 @@
 import { Client, Message } from 'discord.js'
 import * as DB from 'quick.db'
+import Bot from '../class/Bot'
 import Embed from '../class/Embed'
 import Data from '../class/Data'
 import { bold, emoji } from '../markdown'
@@ -8,7 +9,7 @@ import { CommandInterface } from '../types'
 module.exports = {
 	type: 'starts',
 	content: '로드',
-	async run(client: Client, msg: Message) {
+	async run(bot: Bot, msg: Message) {
 		if (msg.guild === null) return
 		const id = msg.content.split(/ /).slice(1).join(' ')
 		const data: Data | null = DB.get(`saved.${id}`)

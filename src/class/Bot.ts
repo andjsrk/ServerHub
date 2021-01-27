@@ -1,5 +1,5 @@
 import * as fs from 'fs'
-import { Client, ClientEvents, Message, MessageEmbed } from 'discord.js'
+import { Client, ClientEvents, Message } from 'discord.js'
 import CommandExecuter from './CommandExecuter'
 import { CommandInterface } from '../types'
 
@@ -25,7 +25,7 @@ export default class Bot {
 		const commandPaths = fs.readdirSync(path, 'utf-8')
 		commandPaths.forEach(commandPath => {
 			const command: CommandInterface = require(`../${path}${path.endsWith('/') ? '' : '/'}${commandPath}`)
-			CommandExecuter.execute(command, this.client, msg)
+			CommandExecuter.execute(command, this, msg)
 		})
 	}
 	setActivity(name: string, type: 'PLAYING' | 'WATCHING' | 'STREAMING' | 'LISTENING' = 'PLAYING') {
